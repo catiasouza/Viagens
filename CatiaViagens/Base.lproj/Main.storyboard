@@ -10,13 +10,13 @@
         <!--Minhas Viagens-->
         <scene sceneID="AGi-Wo-3k1">
             <objects>
-                <tableViewController id="f9v-FJ-dQd" sceneMemberID="viewController">
+                <tableViewController id="f9v-FJ-dQd" customClass="LocaisViagensTableViewController" customModule="CatiaViagens" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MHx-Zz-U7W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tej-Nh-4hk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="celulaReuso" id="tej-Nh-4hk">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tej-Nh-4hk" id="6if-Aq-cf8">
@@ -48,7 +48,7 @@
         <!--Mapa-->
         <scene sceneID="li5-Kk-48T">
             <objects>
-                <viewController title="Mapa" id="kPp-Lr-Mkg" sceneMemberID="viewController">
+                <viewController title="Mapa" id="kPp-Lr-Mkg" customClass="ViewController" customModule="CatiaViagens" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FPM-I7-i8Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
