@@ -52,14 +52,28 @@
                     <view key="view" contentMode="scaleToFill" id="FPM-I7-i8Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lOM-lA-veo">
+                                <rect key="frame" x="0.0" y="96" width="414" height="717"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lOM-lA-veo" firstAttribute="trailing" secondItem="B59-3P-adX" secondAttribute="trailing" id="4IM-w5-5lE"/>
+                            <constraint firstItem="lOM-lA-veo" firstAttribute="top" secondItem="B59-3P-adX" secondAttribute="top" constant="8" id="NeQ-PY-V6I"/>
+                            <constraint firstItem="lOM-lA-veo" firstAttribute="leading" secondItem="B59-3P-adX" secondAttribute="leading" id="Xw4-X6-NVB"/>
+                            <constraint firstItem="lOM-lA-veo" firstAttribute="bottom" secondItem="B59-3P-adX" secondAttribute="bottom" id="vMS-y0-Srb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="B59-3P-adX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mapa" id="dgU-2M-elW"/>
+                    <connections>
+                        <outlet property="mapaLabel" destination="lOM-lA-veo" id="5X0-Jp-7Dt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVo-E4-DwH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="126"/>
+            <point key="canvasLocation" x="653.62318840579712" y="125.89285714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cVV-in-Gzv">
