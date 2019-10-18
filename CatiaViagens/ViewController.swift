@@ -15,6 +15,51 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         configuraGerenciadorLocalizacao()
         
+        let reconhecedorGesto = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.marcar(gesture:) ))
+        reconhecedorGesto.minimumPressDuration = 2
+        mapaLabel.addGestureRecognizer(reconhecedorGesto)
+        
+    }
+    @objc func marcar(gesture: UIGestureRecognizer){
+        // captura o estado inicial
+        if gesture.state == UIGestureRecognizer.State.began{
+       
+            //RECUPERA AS COORDENADAS DO PONTO SELECIONADO
+            let pontoSelecionado = gesture.location(in: self.mapaLabel)
+            let coordenadas = mapaLabel.convert(pontoSelecionado, toCoordinateFrom: self.mapaLabel)
+            let localizacao = CLLocation(latitude: coordenadas.latitude, longitude: coordenadas.longitude)
+            
+            // REDUPERAR ENDERECO DO PONTO SELECIONADO
+          
+            var localCompleto = "Endereco nao encontrado!!"
+            
+            CLGeocoder().reverseGeocodeLocation(localizacao) { (local, erro) in
+                if erro == nil{
+                    if let dadosLocal = local?.first{
+                        if let nome = dadosLocal.name{
+                            localCompleto = nome
+                        }else{
+                            if let endereco = dadosLocal.thoroughfare{
+                                localCompleto = endereco
+                            }
+                        }
+                        
+                    }
+                     //EXIBE ANOTACAO C DADOS DE ENDERECO
+                               let anotacao = MKPointAnnotation()
+                               anotacao.coordinate.latitude = coordenadas.latitude
+                               anotacao.coordinate.longitude = coordenadas.longitude
+                               anotacao.title = localCompleto
+                              
+                    self.mapaLabel.addAnnotation(anotacao)
+                    
+                }else{
+                    print(erro)
+                }
+            }
+            
+           
+        }
     }
     func configuraGerenciadorLocalizacao(){
         
