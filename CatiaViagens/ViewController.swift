@@ -8,6 +8,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var mapaLabel: MKMapView!
     var gerenciadorLocalizacao = CLLocationManager()
+    var viagem: Dictionary<String, String> = [:]
     
 
     override func viewDidLoad() {
@@ -23,14 +24,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @objc func marcar(gesture: UIGestureRecognizer){
         // captura o estado inicial
         if gesture.state == UIGestureRecognizer.State.began{
-       
+            
             //RECUPERA AS COORDENADAS DO PONTO SELECIONADO
             let pontoSelecionado = gesture.location(in: self.mapaLabel)
             let coordenadas = mapaLabel.convert(pontoSelecionado, toCoordinateFrom: self.mapaLabel)
             let localizacao = CLLocation(latitude: coordenadas.latitude, longitude: coordenadas.longitude)
             
             // REDUPERAR ENDERECO DO PONTO SELECIONADO
-          
+            
             var localCompleto = "Endereco nao encontrado!!"
             
             CLGeocoder().reverseGeocodeLocation(localizacao) { (local, erro) in
@@ -45,12 +46,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         }
                         
                     }
-                     //EXIBE ANOTACAO C DADOS DE ENDERECO
-                               let anotacao = MKPointAnnotation()
-                               anotacao.coordinate.latitude = coordenadas.latitude
-                               anotacao.coordinate.longitude = coordenadas.longitude
-                               anotacao.title = localCompleto
-                              
+                    
+                    // SALVAR DADOS NO DISPOSITIVO
+                    self.viagem = ["local":localCompleto, "latitude": String(coordenadas.latitude), "longitude":String(coordenadas.longitude)]
+                    ArmazenamentoDados().salvarViagens(viagem: self.viagem)
+                    
+                    print(ArmazenamentoDados().listarViagens())
+                    //EXIBE ANOTACAO C DADOS DE ENDERECO
+                    let anotacao = MKPointAnnotation()
+                    anotacao.coordinate.latitude = coordenadas.latitude
+                    anotacao.coordinate.longitude = coordenadas.longitude
+                    anotacao.title = localCompleto
+                    
                     self.mapaLabel.addAnnotation(anotacao)
                     
                 }else{
@@ -58,7 +65,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 }
             }
             
-           
+            
         }
     }
     func configuraGerenciadorLocalizacao(){

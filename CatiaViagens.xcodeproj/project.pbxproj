@@ -14,6 +14,7 @@
 		75BA39412358EAA900D92712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75BA39402358EAA900D92712 /* Assets.xcassets */; };
 		75BA39442358EAA900D92712 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75BA39422358EAA900D92712 /* LaunchScreen.storyboard */; };
 		75BA394C2358F12900D92712 /* LocaisViagensTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA394B2358F12900D92712 /* LocaisViagensTableViewController.swift */; };
+		75BA394E2359FFF200D92712 /* ArmazenamentoDados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA394D2359FFF100D92712 /* ArmazenamentoDados.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		75BA39432358EAA900D92712 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75BA39452358EAA900D92712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75BA394B2358F12900D92712 /* LocaisViagensTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaisViagensTableViewController.swift; sourceTree = "<group>"; };
+		75BA394D2359FFF100D92712 /* ArmazenamentoDados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmazenamentoDados.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				75BA39372358EAA700D92712 /* AppDelegate.swift */,
 				75BA39392358EAA700D92712 /* SceneDelegate.swift */,
 				75BA393B2358EAA700D92712 /* ViewController.swift */,
+				75BA394D2359FFF100D92712 /* ArmazenamentoDados.swift */,
 				75BA394B2358F12900D92712 /* LocaisViagensTableViewController.swift */,
 				75BA393D2358EAA700D92712 /* Main.storyboard */,
 				75BA39402358EAA900D92712 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75BA394C2358F12900D92712 /* LocaisViagensTableViewController.swift in Sources */,
+				75BA394E2359FFF200D92712 /* ArmazenamentoDados.swift in Sources */,
 				75BA393C2358EAA700D92712 /* ViewController.swift in Sources */,
 				75BA39382358EAA700D92712 /* AppDelegate.swift in Sources */,
 				75BA393A2358EAA700D92712 /* SceneDelegate.swift in Sources */,
