@@ -35,7 +35,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FWb-wM-X2E">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="kPp-Lr-Mkg" kind="show" id="APW-6P-kTu"/>
+                                <segue destination="kPp-Lr-Mkg" kind="show" identifier="verLocal" id="APW-6P-kTu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
