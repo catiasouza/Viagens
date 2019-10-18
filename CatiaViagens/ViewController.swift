@@ -51,7 +51,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.viagem = ["local":localCompleto, "latitude": String(coordenadas.latitude), "longitude":String(coordenadas.longitude)]
                     ArmazenamentoDados().salvarViagens(viagem: self.viagem)
                     
-                    print(ArmazenamentoDados().listarViagens())
+                    
                     //EXIBE ANOTACAO C DADOS DE ENDERECO
                     let anotacao = MKPointAnnotation()
                     anotacao.coordinate.latitude = coordenadas.latitude

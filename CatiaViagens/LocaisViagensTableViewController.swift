@@ -3,17 +3,19 @@ import UIKit
 
 class LocaisViagensTableViewController: UITableViewController {
     
-    var locaisViagens: [String] = ["Cabo frio", "Vitoria","Araras","IlhaBella","Gramado", "Brasilia","Goiania","Angra dos Reis","Juiz de Fora", "Pato de MInas","Volta Redonda"]
+    var locaisViagens: [ Dictionary< String, String>] = []
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //locaisViagens = ArmazenamentoDados().listarViagens()
     
     }
 
-    // MARK: - Table view data source
+    override func viewDidAppear(_ animated: Bool) {
+        atualizarViagens()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
       
@@ -28,7 +30,7 @@ class LocaisViagensTableViewController: UITableViewController {
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let viagens = locaisViagens[indexPath.row]
+        let viagens = locaisViagens[indexPath.row]["local"]
         let celulaReuso = "celulaReuso"
         let cell = tableView.dequeueReusableCell(withIdentifier: celulaReuso, for: indexPath)
         cell.textLabel?.text = viagens
@@ -36,15 +38,20 @@ class LocaisViagensTableViewController: UITableViewController {
 
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        // metodo p remover
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle , forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            ArmazenamentoDados().removerViagens( indice: indexPath.row )
+            atualizarViagens()
+        }
     }
-    */
+    
+    func atualizarViagens(){
+        locaisViagens = ArmazenamentoDados().listarViagens()
+        tableView.reloadData()
+    }
 
     /*
     // Override to support editing the table view.
